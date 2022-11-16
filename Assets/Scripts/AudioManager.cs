@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip hurtSFX;
     public AudioClip starSFX;
     public AudioClip bombSFX;
-    public AudioClip lifeSFX;
+    public AudioClip victorySFX;
+    public AudioClip loseSFX;
     
     // Start is called before the first frame update
     void Awake()
@@ -36,5 +37,14 @@ public class AudioManager : MonoBehaviour
    public void touchbomb()
    {
        _audioSource.PlayOneShot(bombSFX);
+   }
+
+   public void victorysound()
+   {
+       _audioSource.PlayOneShot(victorySFX);
+   }
+   public void losesound()
+   {
+       _audioSource.PlayOneShot(loseSFX);
    }
 }

@@ -15,6 +15,7 @@ public class Player_movement : MonoBehaviour
     public Bomb bomb;
     public GameManager gamemanager;
     private AudioManager sfxManager;
+    private BgmManager bgmManager;
     
 
 
@@ -28,6 +29,7 @@ public class Player_movement : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sfxManager = GameObject.Find("SFXManager").GetComponent<AudioManager>();
+        bgmManager = GameObject.Find("BGMManager").GetComponent<BgmManager>();
         
 
 
@@ -83,9 +85,10 @@ public class Player_movement : MonoBehaviour
         if(other.gameObject.layer == 7)
         {
 
-            Destroy(this.gameObject);
-            Debug.Log("Caiste al vacio");
+            //Debug.Log("Caiste al vacio");
+            bgmManager.StopBGM();
             sfxManager.deathcharacter();
+            sfxManager.losesound();
             gamemanager.muerte(this.gameObject);
 
         }
@@ -94,7 +97,7 @@ public class Player_movement : MonoBehaviour
             
            
             gamemanager.cogerestrellas(other.gameObject, this.gameObject);
-            Debug.Log("Conseguiste una estrella");
+            //Debug.Log("Conseguiste una estrella");
 
         }
         

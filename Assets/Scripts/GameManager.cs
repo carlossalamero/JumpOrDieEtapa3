@@ -71,7 +71,8 @@ public class GameManager : MonoBehaviour
         {
 
             ganar(character);
-            SceneManager.LoadScene(0);
+            sfxManager.victorysound();
+            Invoke("MainMenu", 5);
 
         }
         
@@ -85,9 +86,9 @@ public class GameManager : MonoBehaviour
     {
 
         derrota.SetActive(true);
-        sfxManager.deathcharacter();
-        Destroy(character, 0.3f);
-        SceneManager.LoadScene(0);
+        sfxManager.losesound();
+        Destroy(character, 4f);
+        Invoke("MainMenu", 5);
 
     }
 
